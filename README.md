@@ -1,16 +1,38 @@
-# React + Vite
+# Uber Eat Web App
+A simple meal app that enables the user to order food & drinks, pay online and have the same delivered.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Date: 21 October, 2025
 
-Currently, two official plugins are available:
+#### Software Engineers
+- Joshua Muriki
+- Morris Kamau
+- Janet Moraa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Description
 
-## React Compiler
+Welcome to **Uber Eat** a responsive platform that allows users to browse a variety of meals, add them to a cart, and place orders seamlessly and pay for them online.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running this application
 
-## Expanding the ESLint configuration
+Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<pre> ```https://bot-battlr-five-psi.vercel.app/```</pre>
+
+Interact with the website by placing orders and paying for the food and drinks. 
+
+## Technologies used
+
+- HTML - Structure
+- Tailwind CSS - Styling
+- React - Functionality
+- GitHub - Repo
+- Vercel - Hosting
+
+## Support and contact details
+
+Muriki Joshua (Phone No. 0702 067 939), Morris Kamau (Phone No. 0759 090 503) & Janet Moraa (Phone No. 0710 360 368) 
+
+### License
+The content of this site is licensed under the MIT license Copyright (c) 2025. 
+All rights reserved.
+

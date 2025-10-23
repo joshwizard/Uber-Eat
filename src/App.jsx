@@ -1,18 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
 import Header from './components/Header'
+import Home from "./pages/Home.jsx"
+import { CartProvider } from './context/CartContext.jsx'
+import Footer from "./components/Footer.jsx"
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App () {
   return (
-    <>
-    <Header />
-      
-    </>
+    <CartProvider>
+      <div className="min-h-screen bg-rose-50 text-slate-900 flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Home />
+        </main>
+        <Footer />
+      </div>
+    </CartProvider>
   )
 }
-
-export default App

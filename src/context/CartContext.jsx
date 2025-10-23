@@ -1,45 +1,46 @@
 // src/context/CartContext.jsx
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 
-// 1️⃣ Create the context
+// Create the context
 const CartContext = createContext();
 
-// 2️⃣ Custom hook for easy access
-export const useCart = () => useContext(CartContext);
+function cartReducer(state, action) {
+  switch (action.type) {
+    case "ADD_TO_CART" : 
+      const existing = state.find((item) => item.id === action.payload.id)
+      if(existing) {
+        return state.map((item) => 
+        item.id === action.payload.id
+          ? { ...item, quantity: item.quantity + 1}
+        : item )
 
-// 3️⃣ Provider component
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-
-  // Add to cart
-  const addToCart = (product) => {
-    setCart((prev) => {
-      const exists = prev.find((item) => item.id === product.id);
-      if (exists) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
-        );
+      } else {
+        return [...state, { ...action.payload, quantity: 1}]
       }
-      return [...prev, { ...product, qty: 1 }];
-    });
-  };
 
-  // Remove item from cart
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
+      case "REMOVE_FROM_CART" :
+        return state.filter((item) => item.id !== action.payload.id);
 
-  // Clear entire cart
-  const clearCart = () => setCart([]);
+      case "CLEAR_CART" : 
+        return [];
+  }
+}
 
-  // Compute total cost
-  const totalPrice = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+// Provider Component
+export const CartProvider = ({ children }) => {
+  const [cart, dispatch] = useReducer(cartReducer, [])
+
+  const addToCart = (item) => dispatch({ type: "ADD_TO_CART", payload: item })
+  const removeFromCart = (item) =>
+    dispatch({ type: "REMOVE_FROM_CART", payload: item}) 
+  
+  const clearCart = () => dispatch({ type: "CLEAR_CART "})
 
   return (
-    <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, totalPrice }}
-    >
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => useContext(CartContext)
