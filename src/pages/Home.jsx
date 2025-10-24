@@ -1,4 +1,3 @@
-//home.jsx
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard.jsx";
 
@@ -10,7 +9,7 @@ const Home = ({ selectedCategory }) => {
   const [search, setSearch] = useState(""); // store current search query
 
   useEffect(() => {
-    fetch('/db.json') // fetch data from db.json 
+    fetch('/db.json') // fetch data from db.json
       .then(response => {
         if (!response.ok) {
           throw new Error('failed to fetch products'); // throw error if not
@@ -28,7 +27,7 @@ const Home = ({ selectedCategory }) => {
         setError(err.message); // set error state with message
         setLoading(false); // set loading to false on error
       });
-  }, []); 
+  }, []);
 
   // filter products based on selected category and search query
   const filteredProducts = allProducts.filter((item) => {
@@ -50,10 +49,10 @@ const Home = ({ selectedCategory }) => {
     return <div className="text-center py-10 text-red-500">Error: {error}</div>;
   }
 
-  // main JSX 
+  // main JSX
   return (
-    <div className="max-w-6xl mx-auto py-10 px-6"> 
-      <div className="mb-8 flex justify-center"> 
+    <div className="max-w-6xl mx-auto py-10 px-6">
+      <div className="mb-8 flex justify-center">
         <input
           type="text"
           placeholder="Search food..."
@@ -63,11 +62,11 @@ const Home = ({ selectedCategory }) => {
         />
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4"> 
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         {filteredProducts.length > 0 ? ( // check if there are filtered products
           filteredProducts.map((item) => <ProductCard key={item.id} item={item} />) // render ProductCard for each item
         ) : (
-          <p className="col-span-full text-center text-gray-500"> 
+          <p className="col-span-full text-center text-gray-500">
             No items found.
           </p>
         )}
