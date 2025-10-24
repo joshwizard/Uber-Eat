@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ProductCard from "../components/ProductCard.jsx";
 
 export const allProducts = [
-  // 🥗 Appetizers
+  // Appetizers
   { id: 1, name: "Spring Rolls", price: 300, image: "/images/crispy-spring-rolls.jpg", category: "Appetizers" },
   { id: 2, name: "Garlic Bread", price: 250, image: "/images/vegan-garlic-bread-recipe.jpg", category: "Appetizers" },
   { id: 3, name: "Bruschetta", price: 350, image: "/images/bruschetta.png", category: "Appetizers" },
@@ -13,7 +13,7 @@ export const allProducts = [
   { id: 7, name: "Onion Rings", price: 280, image: "/images/onion-rings.jpg", category: "Appetizers" },
   { id: 8, name: "Cheese Balls", price: 330, image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90", category: "Appetizers" },
 
-  // 🥤 Drinks
+  // Drinks
   { id: 9, name: "Cola Drink", price: 150, image: "/images/cola-drink.png", category: "Drinks" },
   { id: 10, name: "Fresh Orange Juice", price: 200, image: "/images/orange-juice.jpg", category: "Drinks" },
   { id: 11, name: "Iced Coffee", price: 250, image: "https://images.unsplash.com/photo-1511920170033-f8396924c348", category: "Drinks" },
@@ -23,7 +23,7 @@ export const allProducts = [
   { id: 15, name: "Green Tea", price: 150, image: "/images/green-tea.jpg", category: "Drinks" },
   { id: 16, name: "Iced Mocha", price: 280, image: "/images/iced-mocha.jpg", category: "Drinks" },
 
-  // 🍟 Snacks
+  // Snacks
   { id: 17, name: "Potato Chips", price: 180, image: "/images/Potato-Chips.jpg", category: "Snacks" },
   { id: 18, name: "Chocolate Bar", price: 220, image: "/images/chocolate-bar.png", category: "Snacks" },
   { id: 19, name: "Popcorn", price: 160, image: "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03", category: "Snacks" },
@@ -33,7 +33,7 @@ export const allProducts = [
   { id: 23, name: "Boiled Eggs", price: 210, image: "/images/boiled-eggs.jpg", category: "Snacks" },
   { id: 24, name: "Popcorn", price: 190, image: "/images/popcorn.jpg", category: "Snacks" },
 
-  // 🍛 Main Dishes
+  // Main Dishes
   { id: 25, name: "Grilled Chicken", price: 700, image: "/images/chicken.jpeg", category: "Main Dishes" },
   { id: 26, name: "Beef Burger", price: 650, image: "https://images.unsplash.com/photo-1550547660-d9450f859349", category: "Main Dishes" },
   { id: 27, name: "Ugali Beef", price: 850, image: "/images/ugali-beef.jpeg", category: "Main Dishes" },

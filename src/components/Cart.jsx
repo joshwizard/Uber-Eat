@@ -23,7 +23,7 @@ const Cart = () => {
               <div>
                 <h3 className="font-semibold">{item.name}</h3>
                 <p className="text-sm text-gray-600">
-                  KSh {item.price} × {item.quantity}
+                  Kshs {item.price} × {item.quantity}
                 </p>
               </div>
               <button

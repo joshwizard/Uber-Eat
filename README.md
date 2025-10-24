@@ -1,5 +1,6 @@
 # Uber Eat Web App
-A simple meal app that enables the user to order food & drinks, pay online and have the same delivered.
+## Description
+Uber Eats is a responsive platform that allows users to browse a variety of meals, add them to a cart, and place orders easily and pay for them online. As you may have noticed we moringa school students or any other person at large may at be too busy to physicaly get food for themselves and that is what we are trying to counter by making it easier to get food all from the cormfort of your office or home.
 
 #### Date: 21 October, 2025
 
