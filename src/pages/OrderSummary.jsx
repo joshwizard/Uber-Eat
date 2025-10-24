@@ -5,7 +5,7 @@ const OrderSummary = () => {
   return (
     <div className="max-w-3xl mx-auto py-16 text-center">
       <h2 className="text-4xl font-bold text-green-600 mb-4">
-        🎉 Order Confirmed!
+         Order Confirmed!
       </h2>
       <p className="text-lg mb-8">Thank you for your purchase. Your food is on the way!</p>
       <Link
