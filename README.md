@@ -6,7 +6,7 @@ Uber Eats is a responsive platform that allows users to browse a variety of meal
 - Morris Kamau
 - Janet Moraa
 
-# Technologies used
+# technologies used
 - HTML - Structure
 - Tailwind CSS - Styling
 - React - Functionality
