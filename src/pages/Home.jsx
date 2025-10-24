@@ -1,4 +1,4 @@
-// src/pages/Home.jsx
+//Home.jsx
 import React, { useState } from "react";
 import ProductCard from "../components/ProductCard.jsx";
 
