@@ -6,17 +6,34 @@ const Checkout = () => {
   const { cart, clearCart } = useCart();
   const navigate = useNavigate();
   const [isPaying, setIsPaying] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    address: '',
+    cardNumber: '',
+    expiryDate: '',
+    cvv: ''
+  });
 
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handlePayment = (e) => {
     e.preventDefault();
     setIsPaying(true);
 
+    // Simulate payment processing
     setTimeout(() => {
       clearCart();
       navigate("/success");
-    }, 1000);
+    }, 2000);
   };
 
   if (cart.length === 0) {
@@ -76,31 +93,64 @@ const Checkout = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <input
             type="text"
+            name="fullName"
             placeholder="Full Name"
+            value={formData.fullName}
+            onChange={handleInputChange}
             className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             required
           />
           <input
             type="email"
+            name="email"
             placeholder="Email Address"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleInputChange}
             className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             required
           />
           <input
             type="text"
+            name="address"
+            placeholder="Delivery Address"
+            value={formData.address}
+            onChange={handleInputChange}
+            className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none md:col-span-2"
+            required
+          />
+          <input
+            type="text"
+            name="cardNumber"
             placeholder="Card Number (e.g. 4242 4242 4242 4242)"
+            value={formData.cardNumber}
+            onChange={handleInputChange}
             className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             required
           />
           <input
             type="text"
+            name="expiryDate"
             placeholder="Expiry Date (MM/YY)"
+            value={formData.expiryDate}
+            onChange={handleInputChange}
             className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             required
           />
           <input
             type="text"
+            name="cvv"
             placeholder="CVV"
+            value={formData.cvv}
+            onChange={handleInputChange}
             className="border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             required
           />

@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
-import Success from "./pages/Success";
+
 import './App.css'
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         setSelectedCategory={setSelectedCategory}
       />
 
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-40">
         <Routes>
           <Route
             path="/"
@@ -29,7 +29,6 @@ function App() {
             }
           />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/success" element={<Success />} />
         </Routes>
       </main>
 
