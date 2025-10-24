@@ -12,7 +12,7 @@ const Success = () => {
           Payment Successful!
         </h1>
         <p className="text-gray-600 mb-6">
-          Thank you for your order. Your food is being prepared and will be delivered soon 🍔
+          Thank you for your order. Your food is being prepared and will be delivered soon 
         </p>
 
         <button
