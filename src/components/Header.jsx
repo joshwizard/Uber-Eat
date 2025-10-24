@@ -39,7 +39,6 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
         </nav>
 
 
-        {/* Cart Button */}
         {!isCartOpen && (
           <div className="absolute top-4 right-6">
             <button
@@ -57,7 +56,7 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
         )}
       </header>
 
-      {/* Dark Overlay */}
+      
       {isCartOpen && (
         <div
           onClick={() => setIsCartOpen(false)}
@@ -65,7 +64,7 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
         />
       )}
 
-      {/* Cart Drawer */}
+      
       <div
         className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-30 ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
@@ -81,7 +80,7 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
           </button>
         </div>
 
-        {/* Cart items */}
+        
         <div className="p-4 overflow-y-auto h-[calc(100%-120px)]">
           <Cart />
         </div>
