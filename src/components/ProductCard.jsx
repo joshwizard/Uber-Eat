@@ -1,15 +1,21 @@
-// src/components/ProductCard.jsx
 import React from "react";
 import { useCart } from "../context/CartContext.jsx";
 
 const ProductCard = ({ item }) => {
   const { addToCart } = useCart();
 
+  // fallback image fails to load
+  const handleImageError = (e) => {
+    e.target.src =
+      "https://via.placeholder.com/150?text=No+Image"; // placeholder image
+  };
+
   return (
     <div className="bg-gray-100 rounded-xl shadow-md p-4 flex flex-col items-center text-center hover:shadow-lg transition">
       <img
         src={item.image}
         alt={item.name}
+        onError={handleImageError}
         className="w-40 h-40 object-cover rounded-lg"
       />
       <h3 className="text-lg font-semibold mt-3">{item.name}</h3>
