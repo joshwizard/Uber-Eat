@@ -1,9 +1,11 @@
 //Cart.jsx
 import React from "react";
 import { useCart } from "../context/CartContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
+  const navigate = useNavigate();
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -36,9 +38,17 @@ return (
       )}
 
       {cart.length > 0 && (
-        <div className="mt-6 text-right font-semibold text-orange-700">
-          Total: KSh {total}
-        </div>
+        <>
+          <div className="mt-6 text-right font-semibold text-orange-700">
+            Total: KSh {total}
+          </div>
+          <button
+            onClick={() => navigate('/checkout')}
+            className="w-full mt-4 py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition"
+          >
+            Checkout
+          </button>
+        </>
       )}
     </div>
   );

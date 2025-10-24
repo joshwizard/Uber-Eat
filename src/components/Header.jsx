@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 import logo from "/images/logo_1.png";
 import Cart from "./Cart";
 
 const Header = ({ selectedCategory, setSelectedCategory }) => {
   const { cart } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const navigate = useNavigate();
 
   const categories = ["All", "Appetizers", "Drinks", "Snacks", "Main Dishes"];
 
    return (
     <>
-      <header className="bg-orange-300 border-b border-rose-300 relative">
+      <header className="fixed top-0 left-0 w-full bg-orange-300 border-b border-rose-300 z-10">
         <div className="max-w-xl mx-auto px-4 py-4 flex items-center justify-center">
           <div className="flex items-center gap-15">
             <div className="w-22 h-22 rounded-full bg-rose-400 flex items-center justify-center text-white font-bold text-2xl">
@@ -34,30 +36,25 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
                 {tab}
                 </button>
             ))}
-
-            <select className="mb-2 px-3 py-1 rounded-md border border-rose-200 bg-white text-l">
-                <option>Location</option>
-                <option>Prestige</option>
-                <option>Yaya Centre</option>
-                <option>Jamhuri</option>
-            </select>
         </nav>
 
 
         {/* Cart Button */}
-        <div className="absolute top-4 right-6">
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="fixed top-6 right-17 z-40 border bg-white text-orange-600 px-4 py-2 rounded-full font-medium hover:bg-orange-400 transition"
-          >
-            🛒
-            {cart.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                {cart.length}
-              </span>
-            )}
-          </button>
-        </div>
+        {!isCartOpen && (
+          <div className="absolute top-4 right-6">
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="bg-white text-orange-600 px-4 py-2 rounded-lg shadow-lg border border-orange-200 font-medium hover:bg-orange-50 hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+            >
+              <span className="text-lg">🛒</span>
+              {cart.length > 0 && (
+                <span className="bg-orange-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-bold">
+                  {cart.length}
+                </span>
+              )}
+            </button>
+          </div>
+        )}
       </header>
 
       {/* Dark Overlay */}
@@ -87,16 +84,6 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
         {/* Cart items */}
         <div className="p-4 overflow-y-auto h-[calc(100%-120px)]">
           <Cart />
-        </div>
-
-        {/* Checkout button */}
-        <div className="absolute bottom-0 left-0 w-full p-4 border-t bg-white">
-          <button
-            onClick={() => alert("Proceeding to checkout...")}
-            className="w-full py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition"
-          >
-            Proceed to Checkout
-          </button>
         </div>
       </div>
     </>
