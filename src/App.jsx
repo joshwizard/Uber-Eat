@@ -1,20 +1,41 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Checkout from "./pages/Checkout";
+import Success from "./pages/Success";
 import './App.css'
-import Header from './components/Header'
-import Home from "./pages/Home.jsx"
-import { CartProvider } from './context/CartContext.jsx'
-import Footer from "./components/Footer.jsx"
 
-export default function App () {
+function App() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-rose-50 text-slate-900 flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Home />
-        </main>
-        <Footer />
-      </div>
-    </CartProvider>
-  )
+    <div className="min-h-screen flex flex-col">
+      <Header
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+
+      <main className="flex-grow pt-24">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              />
+            }
+          />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<Success />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
+
+export default App;

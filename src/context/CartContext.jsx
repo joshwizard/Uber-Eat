@@ -1,40 +1,26 @@
-// src/context/CartContext.jsx
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-// Create the context
 const CartContext = createContext();
 
-function cartReducer(state, action) {
-  switch (action.type) {
-    case "ADD_TO_CART" : 
-      const existing = state.find((item) => item.id === action.payload.id)
-      if(existing) {
-        return state.map((item) => 
-        item.id === action.payload.id
-          ? { ...item, quantity: item.quantity + 1}
-        : item )
-
-      } else {
-        return [...state, { ...action.payload, quantity: 1}]
-      }
-
-      case "REMOVE_FROM_CART" :
-        return state.filter((item) => item.id !== action.payload.id);
-
-      case "CLEAR_CART" : 
-        return [];
-  }
-}
-
-// Provider Component
 export const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(cartReducer, [])
+  const [cart, setCart] = useState([]);
 
-  const addToCart = (item) => dispatch({ type: "ADD_TO_CART", payload: item })
-  const removeFromCart = (item) =>
-    dispatch({ type: "REMOVE_FROM_CART", payload: item}) 
-  
-  const clearCart = () => dispatch({ type: "CLEAR_CART "})
+  const addToCart = (item) => {
+    setCart((prev) => {
+      const existing = prev.find((i) => i.id === item.id);
+      if (existing) {
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+        );
+      }
+      return [...prev, { ...item, quantity: 1 }];
+    });
+  };
+
+  const removeFromCart = (id) =>
+    setCart((prev) => prev.filter((i) => i.id !== id));
+
+  const clearCart = () => setCart([]);
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
@@ -43,4 +29,4 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export const useCart = () => useContext(CartContext)
+export const useCart = () => useContext(CartContext);

@@ -1,10 +1,12 @@
+// src/components/Footer.jsx
 import React from "react";
 
-function Footer() {
-    return (
-        <>
-        </>
-    )
-}
+const Footer = () => {
+  return (
+    <footer className="bg-orange-300 text-center py-4 text-rose-700 font-medium border-t border-rose-200">
+      © {new Date().getFullYear()} Uber Eat. All rights reserved.
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
