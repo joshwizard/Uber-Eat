@@ -7,7 +7,7 @@ const Cart = () => {
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  return (
+return (
     <div>
       {cart.length === 0 ? (
         <p className="text-gray-500 text-center mt-10">Your cart is empty 🛒</p>
