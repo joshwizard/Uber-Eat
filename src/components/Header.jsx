@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import logo from "/images/logo_1.png";
@@ -8,8 +8,17 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
   const { cart } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const navigate = useNavigate();
+  const [categories, setCategories] = useState([]);
 
-  const categories = ["All", "Appetizers", "Drinks", "Snacks", "Main Dishes"];
+  useEffect(() => {
+    fetch('/db.json')
+      .then(response => response.json())
+      .then(data => {
+        const categoryKeys = Object.keys(data.products || {});
+        setCategories(["All", ...categoryKeys]);
+      })
+      .catch(err => console.error('Error fetching categories:', err));
+  }, []);
 
    return (
     <>
@@ -26,12 +35,14 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8 justify-center">
-            {["All", "Appetizers", "Drinks", "Snacks", "Main Dishes"].map((tab) => (
+        <nav className="flex items-center gap-4 justify-center overflow-x-auto px-4 py-2">
+            {categories.map((tab) => (
                 <button
                 key={tab}
                 onClick={() => setSelectedCategory(tab)}
-                className="px-6 py-1 rounded-full bg-white hover:bg-orange-400 border mb-2 border-rose-200 text-l items-center justify-center transition"
+                className={`px-4 py-1 rounded-full border mb-2 border-rose-200 text-sm whitespace-nowrap transition ${
+                  selectedCategory === tab ? 'bg-orange-400 text-white' : 'bg-white hover:bg-orange-400'
+                }`}
                 >
                 {tab}
                 </button>
