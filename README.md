@@ -17,7 +17,7 @@ Welcome to **Uber Eat** a responsive platform that allows users to browse a vari
 
 Run
 
-<pre> ```https://bot-battlr-five-psi.vercel.app/```</pre>
+<pre> ```https://```</pre>
 
 Interact with the website by placing orders and paying for the food and drinks. 
 
