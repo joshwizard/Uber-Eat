@@ -39,7 +39,6 @@ const Checkout = () => {
         Checkout & Payment
       </h1>
 
-      {/* Order Summary */}
       <div className="bg-white shadow-lg rounded-2xl p-6 mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-rose-600">Order Summary</h2>
         {cart.map((item) => (
@@ -64,11 +63,7 @@ const Checkout = () => {
         </div>
       </div>
 
-      {/* Payment Form */}
-      <form
-        onSubmit={handlePayment}
-        className="bg-white shadow-lg rounded-2xl p-6"
-      >
+      <form onSubmit={handlePayment}className="bg-white shadow-lg rounded-2xl p-6">
         <h2 className="text-2xl font-semibold mb-4 text-rose-600">
           Payment Details
         </h2>
