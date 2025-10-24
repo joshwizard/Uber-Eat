@@ -9,8 +9,7 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
 
   const categories = ["All", "Appetizers", "Drinks", "Snacks", "Main Dishes"];
 
-
-  return (
+   return (
     <>
       <header className="bg-orange-300 border-b border-rose-300 relative">
         <div className="max-w-xl mx-auto px-4 py-4 flex items-center justify-center">
