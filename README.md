@@ -28,6 +28,11 @@ Interact with the website by placing orders and paying for the food and drinks.
 - React - Functionality
 - GitHub - Repo
 - Vercel - Hosting
+## Project Update
+
+This project was forked and improved by janet moraa  
+Added details about installation, usage, and contribution.
+
 
 ## Support and contact details
 
