@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import logo from "/images/logo_1.png";
+import logo from "/public/logo_1.png";
 import Cart from "./Cart";
 
 const Header = ({ selectedCategory, setSelectedCategory }) => {
