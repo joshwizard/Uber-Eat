@@ -4,7 +4,7 @@ import { useCart } from "../context/CartContext.jsx";
 const ProductCard = ({ item }) => {
   const { addToCart } = useCart();
 
-  // fallback image fails to load
+  // fallback 4image fails to load
   const handleImageError = (e) => {
     e.target.src =
       "https://via.placeholder.com/150?text=No+Image"; // placeholder image
