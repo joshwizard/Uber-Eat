@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
-
 import './App.css'
+import Success from "./pages/Success";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -29,6 +29,7 @@ function App() {
             }
           />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </main>
 

@@ -67,7 +67,7 @@ const Checkout = () => {
             <div>
               <h3 className="font-medium">{item.name}</h3>
               <p className="text-sm text-gray-500">
-                {item.quantity} × Ksh {item.price}
+                {item.quantity} x Ksh {item.price}
               </p>
             </div>
             <p className="font-semibold text-orange-600">

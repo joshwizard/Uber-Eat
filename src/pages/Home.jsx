@@ -58,7 +58,8 @@ const Home = ({ selectedCategory }) => {
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-6">
-      {/* 🔍 Search Bar */}
+      
+      {/* Search Bar */}
       <div className="mb-8 flex justify-center">
         <input
           type="text"
@@ -69,7 +70,7 @@ const Home = ({ selectedCategory }) => {
         />
       </div>
 
-      {/* 🧁 Product Grid */}
+      {/* Product Grid */}
       <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((item) => <ProductCard key={item.id} item={item} />)
