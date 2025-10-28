@@ -58,7 +58,7 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
         )}
       </header>
 
-      {/* Dark Overlay */}
+      {/* Cart closes when user clicks outside it */}
       {isCartOpen && (
         <div
           onClick={() => setIsCartOpen(false)}
@@ -78,7 +78,7 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
             onClick={() => setIsCartOpen(false)}
             className="text-rose-600 font-bold text-xl hover:text-rose-800"
           >
-            ✕
+            x
           </button>
         </div>
 

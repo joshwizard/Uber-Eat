@@ -7,18 +7,19 @@ function Success() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-6">
       <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md mx-auto">
-        <div className="text-6xl mb-6">Congrats</div>
-        <h1 className="text-4xl font-bold text-rose-700 mb-4">
-          Order Successful!
-        </h1>
+
+        <div className="text-3xl mb-6">Congrats</div>
+
+        <h1 className="text-4xl font-bold text-rose-700 mb-4">Order Successful!</h1>
+
         <p className="text-lg text-gray-600 mb-6">
-          Thank you for shopping with us! Your order has been placed successfully and will be delivered soon.
+          Thank you for shopping with Uber Eat! Your order has been placed successfully awaiting delivery.
         </p>
+
         <div className="space-y-4">
           <button
             onClick={() => navigate("/")}
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-medium transition"
-          >
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-medium transition">
             Continue Shopping
           </button>
         </div>
